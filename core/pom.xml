@@ -362,23 +362,23 @@
                             <mainClass>io.aiven.klaw.uglify.UglifyFiles</mainClass>
                         </configuration>
                     </execution>
-                    <execution>
-                        <id>Build Coral assets</id>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <phase>generate-resources</phase>
-                        <configuration>
-                            <executable>make</executable>
-                            <!-- Ignore errors during the execution of this plugin to unblock the user during build process -->
-                            <successCodes>
-                                <successCode>0</successCode>
-                                <successCode>1</successCode>
-                                <!-- Continue to build if pnpm is not installed -->
-                                <successCode>2</successCode>
-                            </successCodes>
-                        </configuration>
-                    </execution>
+<!--                    <execution>-->
+<!--                        <id>Build Coral assets</id>-->
+<!--                        <goals>-->
+<!--                            <goal>exec</goal>-->
+<!--                        </goals>-->
+<!--                        <phase>generate-resources</phase>-->
+<!--                        <configuration>-->
+<!--                            <executable>make</executable>-->
+<!--                            &lt;!&ndash; Ignore errors during the execution of this plugin to unblock the user during build process &ndash;&gt;-->
+<!--                            <successCodes>-->
+<!--                                <successCode>0</successCode>-->
+<!--                                <successCode>1</successCode>-->
+<!--                                &lt;!&ndash; Continue to build if pnpm is not installed &ndash;&gt;-->
+<!--                                <successCode>2</successCode>-->
+<!--                            </successCodes>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
                 </executions>
             </plugin>
             <plugin>

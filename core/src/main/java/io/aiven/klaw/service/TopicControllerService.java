@@ -1310,7 +1310,8 @@ public class TopicControllerService {
       String topicName,
       String offsetId,
       Integer selectedPartitionId,
-      Integer selectedNumberOfOffsets) {
+      Integer selectedNumberOfOffsets,
+      Integer selectedOffsetStartId) {
     Map<String, String> topicEvents = new TreeMap<>();
     int tenantId = commonUtilsService.getTenantId(getUserName());
     try {
@@ -1335,6 +1336,7 @@ public class TopicControllerService {
               offsetId,
               selectedPartitionId,
               selectedNumberOfOffsets,
+              selectedOffsetStartId,
               consumerGroupId,
               tenantId);
     } catch (Exception e) {

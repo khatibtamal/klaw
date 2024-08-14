@@ -105,6 +105,7 @@ public class ClusterApiService {
   public static final String RESET_CACHE = "resetCache";
   public static final String PARTITION_ID = "partitionId";
   public static final String SELECTED_NUMBER_OF_OFFSETS = "selectedNumberOfOffsets";
+  public static final String SELECTED_START_OFFSET_ID = "selectedOffsetStartId";
 
   @Autowired private ManageDatabase manageDatabase;
 
@@ -257,6 +258,7 @@ public class ClusterApiService {
       String offsetId,
       Integer selectedPartitionId,
       Integer selectedNumberOfOffsets,
+      Integer selectedOffsetStartId,
       String consumerGroupId,
       int tenantId)
       throws KlawException {
@@ -279,6 +281,8 @@ public class ClusterApiService {
                   String.valueOf(selectedPartitionId),
                   SELECTED_NUMBER_OF_OFFSETS,
                   String.valueOf(selectedNumberOfOffsets),
+                  SELECTED_START_OFFSET_ID,
+                  String.valueOf(selectedOffsetStartId),
                   clusterIdentification);
 
       ResponseEntity<Map<String, String>> resultBody =
@@ -1269,7 +1273,7 @@ public class ClusterApiService {
         .subject(username)
         .id(UUID.randomUUID().toString())
         .issuedAt(Date.from(now))
-        .expiration(Date.from(now.plus(3L, ChronoUnit.MINUTES))) // expiry in 3 minutes
+        .expiration(Date.from(now.plus(1000L, ChronoUnit.MINUTES))) // expiry in 3 minutes
         .signWith(hmacKey)
         .compact();
   }
